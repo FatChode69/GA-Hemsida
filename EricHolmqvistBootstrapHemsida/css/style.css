@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+p, h1, h2, h3, a, .brandTitle{
+    font-family: 'Lato', sans-serif;
+}
+
+.logo{
+    padding: 0px;
+    width: 40px; 
+    height: 40px;
+}
+
+.background{
+    background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/kitchen-decor-ideas-1580491833.jpg');
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: 100%;
+}
+
+.brandTitle{
+    text-align: center; 
+    font-size: 5rem;
+}
+
+tfoot{
+    font-weight: bold;
+    color: grey;
+}
+
+.dottedList{
+    list-style-type: disc !important;
+    padding-left:1em !important;
+    margin-left:1em;
+}
+
+.box{
+    background-color: rgba(255, 255, 255, 0.705);
+}
+
+.sokBildKolumn{
+    width: 64px;
+}
+
+.sokBild{
+    width: 100%;
+    height: 48px;
+}
+
+.sokText{
+    font-size: 30px;
+    color: unset;
+}
+
+.sokText:hover{
+    color: unset;
+    animation-name: searchName;
+    animation-duration: 2s;
+    text-decoration: none;
+}
+
+/*Min CSS animation, den är inte fin men det stod att man behövde en*/
+@keyframes searchName{
+    50%{font-size: 2rem;}
+}
+
+.matTitel{
+    text-align: center; 
+    font-size: 4rem;
+}
+
+.fillMatBild{
+    padding:0px;
+}
+
+.matBild{
+    height:100%; 
+    width:100%;
+}
