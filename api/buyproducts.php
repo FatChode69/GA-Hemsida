@@ -32,7 +32,8 @@ if (($result->num_rows) > 0) {
         #TODO: Jag ska jobba vidare här. Måste matcha databasprodukterna med user_products...
         if$user_product_ids = $row["id"]{
             if $user_products['quantity'] <=  intval($row["quantity"]){
-                $user_products['quantity'] = intval($row["quantity"]-$user_products['quantity'];
+                $index = intval($row["quantity"]-$user_products['quantity'];
+                $sql = "UPDATE products SET quantity=index WHERE $row['id']=$user_product_ids";
             }
         }
 /*         if $user_products[$index]['quantity'] <=  intval($row["quantity"]);
