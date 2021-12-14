@@ -7,8 +7,8 @@ $user_products = array (array("id" => "1", "quantity" => "2"), array("id" => "2"
 #hur det typ ser ut i json
 /* {
     "productsInCart": [
-        {"id": 1, "quantity": 3},
-        {"id": 2, "quantity": 1}
+        {"id": 1, "quantity": 2},
+        {"id": 2, "quantity": 4}
     ]
 } */
 
@@ -30,7 +30,9 @@ if (($result->num_rows) > 0) {
     $index = 0;
     while($row = $result->fetch_assoc()) {
         #TODO: Jag ska jobba vidare här. Måste matcha databasprodukterna med user_products...
-        $row["id"]
+        if$user_product_ids = $row["id"]{
+
+        }
 /*         if $user_products[$index]['quantity'] <=  intval($row["quantity"]);
 
         $products[$index] = $row;
