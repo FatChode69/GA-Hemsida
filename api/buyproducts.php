@@ -36,6 +36,9 @@ if (($result->num_rows) > 0) {
                 $sql = "UPDATE products SET quantity=index WHERE $row['id']=$user_product_ids";
             }
         }
+        else{
+            echo "Error!!!";
+        }
 /*         if $user_products[$index]['quantity'] <=  intval($row["quantity"]);
 
         $products[$index] = $row;
