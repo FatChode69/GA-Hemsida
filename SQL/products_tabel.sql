@@ -10,3 +10,4 @@ CREATE TABLE products (
  
 insert into products (name, price, quantity, picture, description) values ('Dator', 19000.00, 4, 'https://consumer-img.huawei.com/content/dam/huawei-cbg-site/cee-nordics/se/mkt/v4/plp/laptops/kv/matebookxpronew-0318.png', 'lorem ipsum');
 insert into products (name, price, quantity, picture, description) values ('Dator', 14000.90, 2, 'https://itsale.se/wp-content/uploads/2018/01/Aerocool-Bolt.jpg', 'lorem ipsum');
+insert into products (name, price, quantity, picture, description) values ('Datoråäö!?', 14000.90, 2, 'https://itsale.se/wp-content/uploads/2018/01/Aerocool-Bolt.jpg', 'lorem ipsum');

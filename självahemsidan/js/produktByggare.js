@@ -2,18 +2,21 @@ var exampleProduct = null;
 
 //Lägger in all information från api:et i funktionerna som skapar objekten på receptsida
 function laddaRecept(){
-    fetch("products.php")
-    .then(response => {
+    fetch("../api/products.php")
+    .then(response => response.json())
+    .then(jsonRespons => {
+        exampleProduct = jsonRespons;
+        //TODO: Vet inte hur man kollar på ett specifikt objekt eller hur man får fram bara en id
+        console.log(exampleProduct.name);
+        exampleProduct.id=1;
         console.log("products.php");
-        console.log(response);
-        exampleProduct = response;
-        /*
-        fillHeader(exampleProduct.title);
-        fillBeskrivning("Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium accusantium iusto cum sunt illo fuga eaque, dignissimos qui nemo cupiditate doloremque aperiam, sint aut eveniet consequuntur quae totam odit maiores! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi magnam quasi sunt, rem eligendi assumenda explicabo magni provident nobis atque alias repellendus! Excepturi necessitatibus repellat cupiditate nulla asperiores");
-        fillBild(exampleProduct.image);
-        fillIngredienslista(exampleProduct.extendedIngredients);
-        fillInstruktioner(exampleProduct.instructions);
-        */
+        console.log(exampleProduct);
+
+        fillHeader(exampleProduct.name);
+        fillPrice(exampleProduct.price);
+        fillPicture(exampleProduct.picture);
+        fillDesc(exampleProduct.description);
+        fillQuantity(exampleProduct.quantity);
     })
     //Skriver ett felmeddelande om den inte når api:et
     .catch(err => {
@@ -22,37 +25,29 @@ function laddaRecept(){
     });
 }
 
-function fillHeader(maten){
-    var matItem = document.getElementById("header");
-	matItem.innerHTML = maten;
+function fillHeader(name){
+    var nameItem = document.getElementById("header");
+	nameItem.innerHTML = name;
 }
 
-function fillBeskrivning(besk){
-    var beskItem = document.getElementById("besk");
-    beskItem.innerHTML = besk;
+function fillPrice(price){
+    var priceItem = document.getElementById("besk");
+    priceItem.innerHTML = price;
 }
 
-function fillBild(bild){
-    var bildItem = document.getElementById("matBild");
-    bildItem.src = bild;
+function fillQuantity(quantity){
+    var quantityItem = document.getElementById("ingredientList");
+    quantityItem.innerHTML = quantity;
 }
 
-function skapaIngrediens(ingrediensnamn){
-    var listItem = document.createElement("li");
-    listItem.innerHTML = ingrediensnamn;
-    return listItem;
+function fillPicture(picture){
+    var pictureItem = document.getElementById("matBild");
+    pictureItem.src = picture;
 }
 
-function fillIngredienslista(ingredienser){
-    ingredienser.forEach(ing => {
-        var ingItem = document.getElementById("ingredientList");
-        ingItem.appendChild(skapaIngrediens(ing.amount + " " + ing.unit + " " + ing.name));
-    }); 
-}
-
-function fillInstruktioner(instruktioner){
-    insItem = document.getElementById("instruktioner");
-    insItem.innerHTML = instruktioner;
+function fillDesc(desc){
+    var descItem = document.getElementById("instruktioner");
+    descItem.innerHTML = desc;
 }
 
 //Lägger in all information från api:et i en sökkolumn som funktionen skapar på index sidan
