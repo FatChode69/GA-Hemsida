@@ -1,14 +1,13 @@
 var exampleProduct = null;
 
-//Lägger in all information från api:et i funktionerna som skapar objekten på receptsida
-function laddaRecept(){
-    fetch("../api/products.php")
+//Lägger in all information från api:et i funktionerna som skapar objekten på productPage
+function loadProduct(productNumber){
+    fetch("../api/products.php" + "?productId=" + productNumber)
     .then(response => response.json())
     .then(jsonRespons => {
         exampleProduct = jsonRespons;
         //TODO: Vet inte hur man kollar på ett specifikt objekt eller hur man får fram bara en id
         console.log(exampleProduct.name);
-        exampleProduct.id=1;
         console.log("products.php");
         console.log(exampleProduct);
 
@@ -51,7 +50,7 @@ function fillDesc(desc){
 }
 
 //Lägger in all information från api:et i en sökkolumn som funktionen skapar på index sidan
-function sokRecept() {
+function searchProd() {
     let searchBar = document.getElementById("search");
     let searchTerm = searchBar.value;
 
@@ -63,31 +62,32 @@ function sokRecept() {
     if (searchTerm === ""){
         window.location.reload();}
     else {
-        fetch("products.php")
+        fetch("../api/products.php" + "?searchTerm=" + searchTerm)
+    .then(response => response.json())
     .then(response => {
         console.log(response);
-        console.log(response.totalResults);
-        if (response.totalResults === 0) {
-            resultatbox.innerHTML = "No products were found using the searchterm: '" + searchTerm + "'.";
+        if (response.length == 0) {
+            resultatbox.innerHTML = "No products were found using this searchterm: '" + searchTerm + "'.";
+            console.log("Inget resultat :(");
         }
         else{
-            let dishes = response.results;
-            for (let index = 0; index < dishes.length; index++) {
+            let goods = response;
+            for (let index = 0; index < goods.length; index++) {
                 let receptRad = document.createElement("tr");
                 receptRad.className="col-md-8";
                 
                 let bildTd = document.createElement("td");
                 bildTd.className="sokBildKolumn";
                 let bild = document.createElement("img");
-                bild.src = dishes[index].image;
+                bild.src = goods[index].picture;
                 bild.className="sokBild";
                 bildTd.appendChild(bild);
 
 
                 let titelTd = document.createElement("td");
                 let a = document.createElement("a");
-                a.href = "receptsida.html?receptID="+dishes[index].id;
-                a.innerHTML = dishes[index].title;
+                a.href = "productPage.html?productId=" + goods[index].id;
+                a.innerHTML = goods[index].name;
                 a.className="sokText";
                 titelTd.appendChild(a);
         
