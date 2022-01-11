@@ -1,17 +1,28 @@
 <?php
-session_start();
-#$_SESSION["idTag"] = $_POST["idTag"];
+    session_start();
+    #$_SESSION["idTag"] = $_POST["idTag"];
 
 
-if (empty($_SESSION["cart"])){
- $_SESSION["cart"] = [];
-}
+    if (empty($_SESSION["cart"])){
+    $_SESSION["cart"] = [];
+    }
 
 
-$nyProdukt = array("id" => $_POST["idTag"], "quantity" => $_POST["quantityTag"]);
-array_push($_SESSION["cart"], $nyProdukt);
+    $nyProdukt = array("id" => $_POST["idTag"], "quantity" => $_POST["quantityTag"]);
+    array_push($_SESSION["cart"], $nyProdukt);
 
-//$minlista = array();
-//array_push($minlista, $nyProdukt); //$nyprodukt
-print_r($_SESSION["cart"]);
+    //$minlista = array();
+    //array_push($minlista, $nyProdukt); //$nyprodukt
+    print_r($_SESSION["cart"]);
 ?>
+
+<script>
+    function loadCart(){
+        fetch("../api/products.php" + "?productId=" + productNumber)
+        .then(response => response.json())
+        .then(jsonResponse => {
+        cartProducts = jsonResponse;
+
+    })
+    }
+</script>

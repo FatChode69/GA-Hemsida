@@ -4,8 +4,8 @@ var exampleProduct = null;
 function loadProduct(productNumber){
     fetch("../api/products.php" + "?productId=" + productNumber)
     .then(response => response.json())
-    .then(jsonRespons => {
-        exampleProduct = jsonRespons;
+    .then(jsonResponse => {
+        exampleProduct = jsonResponse;
         //TODO: Vet inte hur man kollar på ett specifikt objekt eller hur man får fram bara en id
         console.log(exampleProduct.name);
         console.log("products.php");
