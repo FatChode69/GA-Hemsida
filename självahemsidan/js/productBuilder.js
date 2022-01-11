@@ -55,6 +55,24 @@ function fillDesc(desc){
     descItem.innerHTML = desc;
 }
 
+function bild1(picture){
+    var pictureItem = document.getElementById("bild1");
+    pictureItem.src = picture;
+}
+
+function makePic() {
+    fetch("../api/products.php" + "?productId=1")
+    .then(response => response.json())
+    .then(jsonResponse => {
+        bild1(jsonResponse.picture);
+    })
+    //Skriver ett felmeddelande om den inte når api:et
+    .catch(err => {
+        console.error(err);
+        fillHeader("Something seems to have gone wrong, please try again another time or contact us using the form on the front page. :)")
+    });
+}
+
 //Lägger in all information från api:et i en sökkolumn som funktionen skapar på index sidan
 function searchProd() {
     let searchBar = document.getElementById("search");
@@ -116,3 +134,6 @@ function searchProd() {
 function getValidation(){
     document.getElementById('contact-form').requestSubmit();
 }
+
+
+makePic();
