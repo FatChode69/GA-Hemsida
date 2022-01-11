@@ -15,14 +15,3 @@
     //array_push($minlista, $nyProdukt); //$nyprodukt
     print_r($_SESSION["cart"]);
 ?>
-
-<script>
-    function loadCart(){
-        fetch("../api/products.php" + "?productId=" + productNumber)
-        .then(response => response.json())
-        .then(jsonResponse => {
-        cartProducts = jsonResponse;
-
-    })
-    }
-</script>
