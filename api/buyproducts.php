@@ -16,7 +16,7 @@ $user_products = array (array("id" => "1", "quantity" => "2"), array("id" => "2"
 $user_product_ids = array_column($user_products, 'id');
 
 header('Content-Type: application/json; charset=utf-8');
-#$sql gör en sql för att ladda alla id:n
+#$sql gör en sql för att ladda alla id:n från products tabellen i remmacs_tech databasen
 $sql = "SELECT * FROM `products` where `id` IN (" . implode(",", $user_product_ids) . ");";
 $servername = "localhost";
 $username = "root";
@@ -32,8 +32,12 @@ if (($result->num_rows) > 0) {
         #TODO: Jag ska jobba vidare här. Måste matcha databasprodukterna med user_products...
         if$user_product_ids = $row["id"]{
             if $user_products['quantity'] <=  intval($row["quantity"]){
-                $user_products['quantity'] = intval($row["quantity"]-$user_products['quantity'];
+                $index = intval($row["quantity"]-$user_products['quantity'];
+                $sql = "UPDATE products SET quantity=index WHERE $row['id']=$user_product_ids";
             }
+        }
+        else{
+            echo "Error!!!";
         }
 /*         if $user_products[$index]['quantity'] <=  intval($row["quantity"]);
 
