@@ -58,30 +58,33 @@
       <div class="row">
          <!--Här är min bild på maträtten-->
          <div class="container rounded col-lg-3 box fillMatBild">
-            <img id="matBild" src="images/ThisWillBeReplaced.png" class="rounded matBild" alt="Picture not found.">
+            <img id="pictureTag" src="images/ThisWillBeReplaced.png" class="rounded matBild" alt="Picture not found.">
          </div>
 
          <!--Här är min description-->
          <div class="box container rounded col-lg-8">
-            <h2>Description:</h2>
-            <p id="besk"></p>
+            <h2>Price:</h2>
+            <p id="priceTag"></p>
+
+            <form action="../api/addToCart.php" method="post">
+               <h2>Quantity:</h2>
+               <input type="hidden" name="idTag" id="idTag" value="-1">
+               <input type="number" name="quantityTag" id="quantityTag" min="1" value="1">
+               
+               <input type="submit" value="Submit" class="btn btn-primary btn-lg">
+            </form>
+
+
          </div>
       </div>
 
       <br>
 
       <div class="row">
-         <!--Här är mina ingredienser-->
-         <div class="container rounded col-lg-3 box">
-            <h2>Ingredients:</h2>
-            <ul id="ingredientList" class="dottedList">
-            </ul>
-         </div>
-
          <!--Här är hur man gör-->
          <div class="container rounded col-lg-8 box">
-            <h2>How to make it:</h2>
-            <p id="instruktioner"></p>
+            <h2>description:</h2>
+            <p id="descriptionTag"></p>
          </div>
       </div>
    </main>

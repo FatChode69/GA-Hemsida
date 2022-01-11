@@ -11,6 +11,7 @@ function loadProduct(productNumber){
         console.log("products.php");
         console.log(exampleProduct);
 
+        fillId(exampleProduct.id);
         fillHeader(exampleProduct.name);
         fillPrice(exampleProduct.price);
         fillPicture(exampleProduct.picture);
@@ -24,28 +25,33 @@ function loadProduct(productNumber){
     });
 }
 
+function fillId(idNumber){
+    var idItem = document.getElementById("idTag");
+	idItem.value = idNumber;
+}
+
 function fillHeader(name){
     var nameItem = document.getElementById("header");
 	nameItem.innerHTML = name;
 }
 
 function fillPrice(price){
-    var priceItem = document.getElementById("besk");
+    var priceItem = document.getElementById("priceTag");
     priceItem.innerHTML = price;
 }
 
 function fillQuantity(quantity){
-    var quantityItem = document.getElementById("ingredientList");
-    quantityItem.innerHTML = quantity;
+    var quantityItem = document.getElementById("quantityTag");
+    quantityItem.max = quantity;
 }
 
 function fillPicture(picture){
-    var pictureItem = document.getElementById("matBild");
+    var pictureItem = document.getElementById("pictureTag");
     pictureItem.src = picture;
 }
 
 function fillDesc(desc){
-    var descItem = document.getElementById("instruktioner");
+    var descItem = document.getElementById("descriptionTag");
     descItem.innerHTML = desc;
 }
 
