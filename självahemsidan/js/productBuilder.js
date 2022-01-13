@@ -59,12 +59,32 @@ function bild1(picture){
     var pictureItem = document.getElementById("bild1");
     pictureItem.src = picture;
 }
+function bild2(picture){
+    var pictureItem = document.getElementById("bild2");
+    pictureItem.src = picture;
+}
+function text1(text){
+    var textItem = document.getElementById("text1");
+    textItem.innerHTML = text;
+}
+
+function text2(text){
+    var textItem = document.getElementById("text2");
+    textItem.innerHTML = text;
+}
 
 function makePic() {
     fetch("../api/products.php" + "?productId=1")
     .then(response => response.json())
     .then(jsonResponse => {
         bild1(jsonResponse.picture);
+        text1(jsonResponse.name);
+    })
+    fetch("../api/products.php" + "?productId=2")
+    .then(response => response.json())
+    .then(jsonResponse => {
+        bild2(jsonResponse.picture);
+        text2(jsonResponse.name);
     })
     //Skriver ett felmeddelande om den inte når api:et
     .catch(err => {
