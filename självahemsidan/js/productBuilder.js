@@ -63,13 +63,20 @@ function bild2(picture){
     var pictureItem = document.getElementById("bild2");
     pictureItem.src = picture;
 }
+function bild3(picture){
+    var pictureItem = document.getElementById("bild3");
+    pictureItem.src = picture;
+}
 function text1(text){
     var textItem = document.getElementById("text1");
     textItem.innerHTML = text;
 }
-
 function text2(text){
     var textItem = document.getElementById("text2");
+    textItem.innerHTML = text;
+}
+function text3(text){
+    var textItem = document.getElementById("text3");
     textItem.innerHTML = text;
 }
 
@@ -85,6 +92,12 @@ function makePic() {
     .then(jsonResponse => {
         bild2(jsonResponse.picture);
         text2(jsonResponse.name);
+    })
+    fetch("../api/products.php" + "?productId=3")
+    .then(response => response.json())
+    .then(jsonResponse => {
+        bild3(jsonResponse.picture);
+        text3(jsonResponse.name);
     })
     //Skriver ett felmeddelande om den inte når api:et
     .catch(err => {
