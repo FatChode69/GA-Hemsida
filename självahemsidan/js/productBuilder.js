@@ -119,7 +119,7 @@ function searchProd() {
     if (searchTerm === ""){
         window.location.reload();}
     else {
-        fetch("../api/products.php" + "?searchTerm=" + searchTerm)
+    fetch("../api/products.php" + "?searchTerm=" + searchTerm)
     .then(response => response.json())
     .then(response => {
         console.log(response);
