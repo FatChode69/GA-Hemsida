@@ -18,7 +18,7 @@
   </head>
   <body id="body">
 	<!--Denna gör min Navbar-->
-   <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
 		<a href="index.html">
          <img class="navbar-brand logo" alt="Picture not found." src="images/matlogga3.png">
       </a>
@@ -39,17 +39,18 @@
                <a class="nav-link" href="../självahemsidan/index.html#contactUs">Contact Us</a>
             </li>
          </ul>
-      </section>
-   </nav>
+        </section>
+    </nav>
 	
-   <div class="background">
-   <br>
-   <br>
-   <br>
+    <div class="background">
+    <br>
+    <br>
+    <br>
    
-   <!--Vad maträtten heter-->
-   <header id="header" class="container rounded col-lg-8 box matTitel">
-   </header>
+    <!--Header-->
+    <header class="container rounded col-lg-8 box matTitel">
+        Your Cart
+    </header>
 
    <br>
    <br>
@@ -66,7 +67,6 @@
         $conn = mysqli_connect($servername, $username, $password, $database);
 
         session_start();
-        //session_reset();
         #$_SESSION["idTag"] = $_POST["idTag"];
 
 
@@ -74,28 +74,48 @@
         $_SESSION["cart"] = [];
         }
 
-        $key = array_search($_POST["idTag"], array_column($_SESSION["cart"], 'id'));
+        if (!empty($_POST["idTag"])) {
+            //echo "Add to cart....";
+            $key = array_search($_POST["idTag"], array_column($_SESSION["cart"], 'id'));
+            //echo "Key:" . $key . "<br>";
 
-        if (($key)){
-            echo("Unsetting key " . $key);
-            unset($_SESSION["cart"][$key]);
+            if (is_numeric($key)){
+                //echo("Unsetting key " . $key);
+                array_splice($_SESSION["cart"], $key, 1);
+            }
+
+            $nyProdukt = array(
+                "id" => $_POST["idTag"], 
+                "quantity" => $_POST["quantityTag"]);
+            array_push($_SESSION["cart"], $nyProdukt);
+            
+        } elseif (!empty($_POST["removeIdFromCart"])) {
+            //echo "Remove from cart...";
+            $key = array_search($_POST["removeIdFromCart"], array_column($_SESSION["cart"], 'id'));
+            //echo "Key:" . $key . "<br>";
+
+            if (is_numeric($key)){
+                //echo("Unsetting key " . $key);
+                array_splice($_SESSION["cart"], $key, 1);
+            }
+        } else {
+            //echo "View cart...";
         }
-
-        $nyProdukt = array(
-            "id" => $_POST["idTag"], 
-            "quantity" => $_POST["quantityTag"]);
-        array_push($_SESSION["cart"], $nyProdukt);
-
         
+
+
+        //Display cart
+
         $sql = 'SELECT * FROM products WHERE id IN (-1';
         foreach ($_SESSION["cart"] as $value) {
-            $sql = $sql . ", " . $value["id"];
+            if (is_numeric($value["id"])) {
+                $sql = $sql . ", " . $value["id"];
+            }
         }
         $sql = $sql . ")";
-        
+
         $result = $conn->query($sql);
         
-        $x=0;
         if (($result->num_rows) > 0) {
             while($row = $result->fetch_assoc()) {
                 foreach ($_SESSION["cart"] as $value) {
@@ -103,27 +123,39 @@
                         $cartQuantity = $value['quantity'];
                     }
                 }
-                echo ($row['name']);
+                //echo ($row['name']);
                 echo('<tr class="col-md-8">');
                 echo('    <td class="sokBildKolumn"><img src="' . $row['picture'] . '"');
                 echo('            class="sokBild"></td>');
-                echo('    <td><a href="productPage.html?productId=' . $row["id"] . '" class="sokText">' . $row['name'] . '</a>'. $cartQuantity .'</td>');
+                echo('    <td><a href="productPage.html?productId=' . $row["id"] . '" class="sokText">' . $row['name'] . '</a>'. $cartQuantity .
+                '<form action="../api/addToCart.php" method="post">
+                <input type="hidden" name="removeIdFromCart" id="removeIdFromCart" value="' . $row["id"] . '">
+                <input type="submit" value="Delete" class="btn btn-danger btn-lg">
+                </form>');
                 echo('</tr>');
             }
         }
     ?>
-        </table>
-   </main>
 
-   <!--Min fotter-->
-   <footer class="container">
-      <div class="row">
-         <div class="text-center col-lg-6 offset-lg-3">
-            <p>Copyright &copy; 2021 &middot; Knife and Fork Kitchen</p>
-         </div>
-      </div>
-   </footer>
-   </div>
+
+
+        </table>
+    </main>
+    <br>
+
+    <div class="col text-center">
+        <button class="btn btn-primary btn-lg" onclick="window.location.href='../api/buyproduct.php'">Gå till betalning</button>
+    </div>
+
+    <!--Min fotter-->
+    <footer class="container">
+        <div class="row">
+            <div class="text-center col-lg-6 offset-lg-3">
+                <p>Copyright &copy; 2021 &middot; Knife and Fork Kitchen</p>
+            </div>
+        </div>
+    </footer>
+    </div>
 
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
    <script src="../självahemsidan/js/jquery-3.4.1.min.js"></script>
