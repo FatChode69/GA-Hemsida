@@ -18,29 +18,41 @@
   </head>
   <body id="body">
 	<!--Denna gör min Navbar-->
-   <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-		<a href="index.html">
-         <img class="navbar-brand logo" alt="Picture not found." src="images/matlogga3.png">
+   <nav class="navbar navbar-expand-sm  fixed-top" style="opacity: 0.97; background-color:#061d38;">
+      <a href="index.html">
+      <img class="navbar-brand logo" alt="Picture not found." src="images/logga.png">
       </a>
 
-		<!--Här så görs mina nav-items en hamburgermeny när skärmen blir liten-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
+  <!--Här så görs mina nav-items en hamburgermeny när skärmen blir liten-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
 
-      <!--Mina länkar-->
-      <section class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-               <a class="nav-link" href="index.html">Home</a>
-            </li>
-             
-            <li class="nav-item active">
-               <a class="nav-link" href="index.html#contactUs">Contact Us</a>
-            </li>
-         </ul>
-      </section>
-   </nav>
+  <!--Mina länkar-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" href="index.html#body">Home</a>
+          </li>
+      </ul>
+
+  </div>
+  <!--Sökfältet och sökknappen-->
+  <div class="container rounded col-lg-8">
+      <div class="input-group col-lg-8" >
+          <input id="search" type="search" class="form-control rounded" placeholder="Start your search" aria-label="Search">
+          <button id="search-button" type="button" class="btn btn-primary" onclick="searchProd()">search</button>
+      </div>
+        <!--Sök resultatet-->
+      <table id="resultat" class="container rounded col-lg-8 box" style="position:absolute; transform:translateY(57%);">
+      </table>
+  </div>
+
+  <!-- shopping carten -->
+  <a href="../api/addToCart.php">
+  <img class="ShopCart" alt="Picture not found." src="images/bråCart.png">
+  </a>
+  </nav>
 	
    <div class="background">
    <br>
@@ -71,7 +83,7 @@
                <input type="hidden" name="idTag" id="idTag" value="-1">
                <input type="number" name="quantityTag" id="quantityTag" min="0" value="0">
                
-               <input type="submit" value="Submit" class="btn btn-primary btn-lg">
+               <input type="submit" value="Lägg i varukorg" class="btn btn-success btn-lg">
             </form>
 
 
@@ -106,8 +118,9 @@
    <script src="js/popper.min.js"></script>
    <script src="js/bootstrap-4.4.1.js"></script>
 	  
-   <!--Här är mina Java-Script recept--> 
+   <!--Här är min Java-Script--> 
 	<script src="js/productBuilder.js"></script>
    <script src="js/productPage.js"></script>
+   <script src="js/index.js"></script>
   </body>
 </html>

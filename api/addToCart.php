@@ -18,29 +18,37 @@
   </head>
   <body id="body">
 	<!--Denna gör min Navbar-->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-		<a href="index.html">
-         <img class="navbar-brand logo" alt="Picture not found." src="images/matlogga3.png">
-      </a>
+    <nav class="navbar navbar-expand-sm  fixed-top" style="opacity: 0.97; background-color:#061d38;">
+            <a href="../självahemsidan/index.html">
+            <img class="navbar-brand logo" alt="Picture not found." src="../självahemsidan/images/logga.png">
+            </a>
 
-		<!--Här så görs mina nav-items en hamburgermeny när skärmen blir liten-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
+        <!--Här så görs mina nav-items en hamburgermeny när skärmen blir liten-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <!--Mina länkar-->
-      <section class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-               <a class="nav-link" href="../självahemsidan/index.html">Home</a>
-            </li>
-             
-            <li class="nav-item active">
-               <a class="nav-link" href="../självahemsidan/index.html#contactUs">Contact Us</a>
-            </li>
-         </ul>
-        </section>
-    </nav>
+        <!--Mina länkar-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../självahemsidan/index.html#body">Home</a>
+                </li>
+            </ul>
+    
+        </div>
+        <!--Sökfältet och sökknappen-->
+        <div class="container rounded col-lg-8">
+              <!--Sök resultatet-->
+            <table id="resultat" class="container rounded col-lg-8 box" style="position:absolute; transform:translateY(57%);">
+            </table>
+        </div>
+
+        <!-- shopping carten -->
+        <a href="../api/addToCart.php">
+        <img class="ShopCart" alt="Picture not found." src="../självahemsidan/images/bråCart.png">
+        </a>
+        </nav>
 	
     <div class="background">
     <br>
@@ -144,7 +152,7 @@
     <br>
 
     <div class="col text-center">
-        <button class="btn btn-primary btn-lg" onclick="window.location.href='../api/buyproduct.php'">Gå till betalning</button>
+        <button class="btn btn-success btn-lg" onclick="window.location.href='../api/buyproduct.php'">Gå till betalning</button>
     </div>
 
     <!--Min fotter-->
@@ -164,6 +172,6 @@
    <script src="../självahemsidan/js/popper.min.js"></script>
    <script src="../självahemsidan/js/bootstrap-4.4.1.js"></script>
 	  
-   <!--Här är mina Java-Script recept--> 
+   <!--Här är min Java-Script-->
   </body>
 </html>
