@@ -49,17 +49,16 @@
    
     <!--Header-->
     <header class="container rounded col-lg-8 box matTitel">
-        Your Cart
+        Tack för att du handlar hos oss!
     </header>
 
-   <br>
-   <br>
 
-   <main class="container">
-    
 
-        <table id="resultat" class="container rounded col-lg-8 box">
-        <?php
+    <br>
+    <!--Information från köparen-->
+    <section id="contactUs" class="mb-4 col-lg-6 mx-auto box">
+    <h2 class="h1-responsive font-weight-bold text-center my-4">
+    <?php
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -67,44 +66,6 @@
         $conn = mysqli_connect($servername, $username, $password, $database);
 
         session_start();
-        #$_SESSION["idTag"] = $_POST["idTag"];
-
-
-        if (empty($_SESSION["cart"])){
-        $_SESSION["cart"] = [];
-        }
-
-        if (!empty($_POST["idTag"])) {
-            //echo "Add to cart....";
-            $key = array_search($_POST["idTag"], array_column($_SESSION["cart"], 'id'));
-            //echo "Key:" . $key . "<br>";
-
-            if (is_numeric($key)){
-                //echo("Unsetting key " . $key);
-                array_splice($_SESSION["cart"], $key, 1);
-            }
-
-            $nyProdukt = array(
-                "id" => $_POST["idTag"], 
-                "quantity" => $_POST["quantityTag"]);
-            array_push($_SESSION["cart"], $nyProdukt);
-            
-        } elseif (!empty($_POST["removeIdFromCart"])) {
-            //echo "Remove from cart...";
-            $key = array_search($_POST["removeIdFromCart"], array_column($_SESSION["cart"], 'id'));
-            //echo "Key:" . $key . "<br>";
-
-            if (is_numeric($key)){
-                //echo("Unsetting key " . $key);
-                array_splice($_SESSION["cart"], $key, 1);
-            }
-        } else {
-            //echo "View cart...";
-        }
-        
-
-
-        //Display cart
 
         $sql = 'SELECT * FROM products WHERE id IN (-1';
         foreach ($_SESSION["cart"] as $value) {
@@ -115,37 +76,29 @@
         $sql = $sql . ")";
 
         $result = $conn->query($sql);
-        
+
         if (($result->num_rows) > 0) {
             while($row = $result->fetch_assoc()) {
                 foreach ($_SESSION["cart"] as $value) {
-                if ($row['id'] == $value['id']){
+                    if ($row['id'] == $value['id']){
                         $cartQuantity = $value['quantity'];
-                    }
+                        if ($cartQuantity <= $row['quantity']) {
+                            $quantityCart=$row['quantity']-$cartQuantity;
+                            echo("Tack för att du köpte produkten: " . $row['name'] . " <br>");
+                            $sql = "UPDATE products SET quantity=" . $quantityCart . " WHERE id=" . $row['id'] . ";";
+                            $conn->query($sql);
+                        } else {
+                            echo("Produkten: " . $row['name'] . " var inte köpt. <br>");
+                        }
+                    } 
                 }
-                //echo ($row['name']);
-                echo('<tr class="col-md-8">');
-                echo('    <td class="sokBildKolumn"><img src="' . $row['picture'] . '"');
-                echo('            class="sokBild"></td>');
-                echo('    <td><a href="../självahemsidan/productPage.html?productId=' . $row["id"] . '" class="sokText">' . $row['name'] . ', ' . $cartQuantity . 'st (' . $row["price"] . 'kr/st) </a>' .
-                '<form action="../api/addToCart.php" method="post">
-                <input type="hidden" name="removeIdFromCart" id="removeIdFromCart" value="' . $row["id"] . '">
-                <input type="submit" value="Delete" class="btn btn-danger btn-lg">
-                </form>');
-                echo('</tr>');
             }
         }
     ?>
+    </h2>
+    </section>
+    <!--Slutet av mitt kontakt formulär-->
 
-
-
-        </table>
-    </main>
-    <br>
-
-    <div class="col text-center">
-        <button class="btn btn-primary btn-lg" onclick="window.location.href='../api/buyproduct.php'">Gå till betalning</button>
-    </div>
 
     <!--Min fotter-->
     <footer class="container">
@@ -165,5 +118,7 @@
    <script src="../självahemsidan/js/bootstrap-4.4.1.js"></script>
 	  
    <!--Här är mina Java-Script recept--> 
+	<script src="../självahemsidan/js/productBuilder.js"></script>
+   <script src="../självahemsidan/js/productPage.js"></script>
   </body>
 </html>

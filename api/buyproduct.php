@@ -92,10 +92,10 @@
         }
     echo $cartSum;
     ?>
-
+    kr
     </h2>
         
-    <form id="contact-form" name="contact-form" method="POST">
+    <form id="contact-form" name="contact-form" method="POST" action="../api/approvalpage.php">
         <div class="row">
         <div class="col-md-6 mb-md-0 mb-5">
                 <div class="row">
@@ -196,7 +196,7 @@
             
         <div class="status"></div>
         <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-primary" onclick="getValidation()">Send</button>
+            <button type="button" class="btn btn-primary" onclick="getValidation()" onclick="window.location.href='../api/approvalpage.php'">Send</button>
         </div>
     </form>
     </section>
