@@ -30,9 +30,9 @@ if (($result->num_rows) > 0) {
     $index = 0;
     while($row = $result->fetch_assoc()) {
         #TODO: Jag ska jobba vidare här. Måste matcha databasprodukterna med user_products...
-        if$user_product_ids = $row["id"]{
-            if $user_products['quantity'] <=  intval($row["quantity"]){
-                $index = intval($row["quantity"]-$user_products['quantity'];
+        if ($user_product_ids = $row["id"]){
+            if ($user_products['quantity'] <=  intval($row["quantity"]){
+                $index = (intval($row["quantity"] - $user_products['quantity']);
                 $sql = "UPDATE products SET quantity=index WHERE $row['id']=$user_product_ids";
             }
         }
