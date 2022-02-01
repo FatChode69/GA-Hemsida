@@ -95,6 +95,7 @@
                             echo("Tack för att du köpte produkten: " . $row['name'] . " <br>");
                             $sql = "UPDATE products SET quantity=" . $quantityCart . " WHERE id=" . $row['id'] . ";";
                             $conn->query($sql);
+                            $_SESSION["cart"] = [];
                         } else {
                             echo("Produkten: " . $row['name'] . " var inte köpt. <br>");
                         }

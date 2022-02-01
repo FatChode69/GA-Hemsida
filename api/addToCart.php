@@ -57,7 +57,7 @@
    
     <!--Header-->
     <header class="container rounded col-lg-8 box matTitel">
-        Your Cart
+        Din kundvagn
     </header>
 
    <br>
@@ -142,6 +142,8 @@
                 </form>');
                 echo('</tr>');
             }
+        } else {
+            echo '<h3 class="container rounded col-lg-8 box" style="text-align:center">Din kundvagn är tom</h3>';
         }
     ?>
 
