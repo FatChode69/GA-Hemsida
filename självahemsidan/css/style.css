@@ -87,9 +87,9 @@ tfoot{
 }
 
 #HeroI{
-    height: 300px;
+    height: 380px;
     position: absolute;
-    transform: translateY(-19.5%);
+    transform: translateY(-16.5%);
     width:100%;
     background-color:#061d38;
 }
