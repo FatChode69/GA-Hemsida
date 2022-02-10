@@ -5,9 +5,7 @@ body{
     padding: 0px;
     margin: 0px;
     background-color:#061d38;
-    
 }
-#061d38
 
 p, h1, h2, h3, a, .brandTitle{
     font-family: 'Lato', sans-serif;
@@ -103,35 +101,7 @@ tfoot{
   height:45px;
 }
 
-#text1{
+.indexProdText{
 color:white;
 font-weight: bold;
 }
-
-#text2{
-  color:white;  
-  font-weight: bold;
-}
-
-
-#text3{
-    color:white;   
-    font-weight: bold;
-}
-
-#text4{
-    color:white;
-    font-weight: bold;
-}
-    
-#text5{
-    color:white;  
-    font-weight: bold;
-}
-    
-    
-#text6{
-    color:white;   
-    font-weight: bold;
-}
-    

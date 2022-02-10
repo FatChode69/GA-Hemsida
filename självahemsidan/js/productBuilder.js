@@ -172,8 +172,8 @@ function searchProd() {
         else{
             let goods = response;
             for (let index = 0; index < goods.length; index++) {
-                let receptRad = document.createElement("tr");
-                receptRad.className="col-md-8";
+                let prodRad = document.createElement("tr");
+                prodRad.className="col-md-8";
                 
                 let bildTd = document.createElement("td");
                 bildTd.className="sokBildKolumn";
@@ -190,10 +190,10 @@ function searchProd() {
                 a.className="sokText";
                 titelTd.appendChild(a);
         
-                receptRad.appendChild(bildTd);
-                receptRad.appendChild(titelTd);
+                prodRad.appendChild(bildTd);
+                prodRad.appendChild(titelTd);
 
-                resultatbox.appendChild(receptRad);
+                resultatbox.appendChild(prodRad);
             }
         } 
     })
