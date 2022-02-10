@@ -45,7 +45,7 @@
                 <button id="search-button" type="button" class="btn btn-outline-light" onclick="searchProd()">search</button>
             </div>
               <!--Sök resultatet-->
-            <table id="resultat" class="container rounded col-lg-8 box" style="position:absolute; transform:translateY(57%);">
+            <table id="resultat" class="container rounded col-lg-8 box" style="position:absolute; transform:translateY(57%); " >
             </table>
         </div>
 
@@ -67,52 +67,43 @@
         </div>    
 
         <!-- img -->
-        <div class="container col-lg-9" style ="height:100%; border-radius:20px;">
+        <div class="container col-lg-11" style ="height:100%; border-radius:20px;">
             <br>
                 <!-- individuella bilder --> 
             <div class="row">
                 <div class="col-1"></div>
-                <img class="col-2" id="bild1" style="height:120px; border:red 1px solid; background-color:white;" alt="Picture not found.">
+                <a class="col-2" href="productPage.html?productId=1">
+                <img id="bild1" style="height:150px; width: 100%; border:red 1px solid; background-color:white;" alt="Picture not found.">
+                <p class="text-center" id="text1">pizzahut</p>
+                </a>
                 <div class="col-2"></div>
-                <img class="col-2" id="bild2" style="height:120px; border:red 1px solid; background-color: white;">
+                <a class="col-2" href="productPage.html?productId=2">
+                <img id="bild2" style="height:150px; width: 100%; border:red 1px solid; background-color:white;" alt="Picture not found.">
+                <p class="text-center" id="text2">pizzahut</p>
+                </a>
                 <div class="col-2"></div>
-                <img class="col-2" id="bild3" style="height:120px; border:red 1px solid; background-color:white;">
+                <a class="col-2" href="productPage.html?productId=3">
+                <img id="bild3" style="height:150px; width: 100%; border:red 1px solid; background-color:white;" alt="Picture not found.">
+                <p class="text-center" id="text3">pizzahut</p>
+                </a>
             </div>
-                <div class="row">
-                    <div class="col-1"></div>
-
-                    <!-- text -->
-                    <div class="col-2 text-center">
-                        <p id="text1">pizzahut</p>
-                    </div>
-                    <!---------->
-
-                    <div class="col-2 " ></div>
-
-                    <!-- text -->
-                    <div class="col-2 text-center">
-                        <p id="text2">julskinka</p>
-                    </div>
-                    <!---------->
-
-                    <div class="col-2"></div>
-
-                    <!-- text -->
-                    <div class="col-2 text-center">
-                        <p id="text3">snowracer</p>
-                    </div>
-                    <!---------->
-                </div>
+            
             <div class="row">
                 <div class="col-1"></div>
-                <div class="col-2" style="height:120px; border:red 1px solid;">
-                </div>
+                <a class="col-2" href="productPage.html?productId=4">
+                <img id="bild4" style="height:150px; width: 100%; border:red 1px solid; background-color:white;" alt="Picture not found.">
+                <p class="text-center" id="text4">pizzahut</p>
+                </a>
                 <div class="col-2"></div>
-                <div class="col-2" style="height:120px; border:red 1px solid;">
-                </div>
+                <a class="col-2" href="productPage.html?productId=5">
+                <img id="bild5" style="height:150px; width: 100%; border:red 1px solid; background-color:white;" alt="Picture not found.">
+                <p class="text-center" id="text5">pizzahut</p>
+                </a>
                 <div class="col-2"></div>
-                <div class="col-2 " style="height:120px; border:red 1px solid;">
-                </div>
+                <a class="col-2" href="productPage.html?productId=6">
+                <img id="bild6" style="height:150px; width: 100%; border:red 1px solid; background-color:white;" alt="Picture not found.">
+                <p class="text-center" id="text6">pizzahut</p>
+                </a>
             </div>
                 <div class="row">
                     <div class="col-1"></div>
@@ -150,7 +141,7 @@
     <footer class="container">
         <div class="row">
            <div class="text-center col-lg-6 offset-lg-3">
-              <p>Copyright &copy; 2021 &middot; Remmacs tech</p>
+              <p style="color:#db51a2;">Copyright &copy; 2021 &middot; Remmacs tech</p>
            </div>
         </div>
      </footer>

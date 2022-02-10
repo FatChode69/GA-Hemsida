@@ -67,6 +67,18 @@ function bild3(picture){
     var pictureItem = document.getElementById("bild3");
     pictureItem.src = picture;
 }
+function bild4(picture){
+    var pictureItem = document.getElementById("bild4");
+    pictureItem.src = picture;
+}
+function bild5(picture){
+    var pictureItem = document.getElementById("bild5");
+    pictureItem.src = picture;
+}
+function bild6(picture){
+    var pictureItem = document.getElementById("bild6");
+    pictureItem.src = picture;
+}
 function text1(text){
     var textItem = document.getElementById("text1");
     textItem.innerHTML = text;
@@ -77,6 +89,18 @@ function text2(text){
 }
 function text3(text){
     var textItem = document.getElementById("text3");
+    textItem.innerHTML = text;
+}
+function text4(text){
+    var textItem = document.getElementById("text4");
+    textItem.innerHTML = text;
+}
+function text5(text){
+    var textItem = document.getElementById("text5");
+    textItem.innerHTML = text;
+}
+function text6(text){
+    var textItem = document.getElementById("text6");
     textItem.innerHTML = text;
 }
 
@@ -98,6 +122,24 @@ function makePic() {
     .then(jsonResponse => {
         bild3(jsonResponse.picture);
         text3(jsonResponse.name);
+    })
+    fetch("../api/products.php" + "?productId=4")
+    .then(response => response.json())
+    .then(jsonResponse => {
+        bild4(jsonResponse.picture);
+        text4(jsonResponse.name);
+    })
+    fetch("../api/products.php" + "?productId=5")
+    .then(response => response.json())
+    .then(jsonResponse => {
+        bild5(jsonResponse.picture);
+        text5(jsonResponse.name);
+    })
+    fetch("../api/products.php" + "?productId=6")
+    .then(response => response.json())
+    .then(jsonResponse => {
+        bild6(jsonResponse.picture);
+        text6(jsonResponse.name);
     })
     //Skriver ett felmeddelande om den inte når api:et
     .catch(err => {
