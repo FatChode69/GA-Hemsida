@@ -37,7 +37,7 @@ function fillHeader(name){
 
 function fillPrice(price){
     var priceItem = document.getElementById("priceTag");
-    priceItem.innerHTML = price;
+    priceItem.innerHTML = price + "kr";
 }
 
 function fillQuantity(quantity){

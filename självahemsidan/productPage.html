@@ -18,7 +18,7 @@
   </head>
   <body id="body">
 	<!--Denna gör min Navbar-->
-   <nav class="navbar navbar-expand-sm  fixed-top" style="opacity: 0.97; background-color:#061d38; border-bottom: #db51a2 solid 4px;" >
+   <nav class="navbar navbar-expand-sm  fixed-top" style="opacity: 0.97; background-color:#061d38; border-bottom: #db51a2 solid 4px;">
       <a href="index.html">
       <img class="navbar-brand logo" alt="Picture not found." src="images/logga.png">
       </a>
@@ -32,7 +32,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-              <a class="nav-link" href="index.html#body">Home</a>
+              <a class="nav-link" href="#body">Home</a>
           </li>
       </ul>
 
@@ -41,10 +41,10 @@
   <div class="container rounded col-lg-8">
       <div class="input-group col-lg-8" >
           <input id="search" type="search" class="form-control rounded" placeholder="Start your search" aria-label="Search">
-          <button id="search-button" type="button" class="btn btn-primary" onclick="searchProd()">search</button>
+          <button id="search-button" type="button" class="btn btn-outline-light" onclick="searchProd()">search</button>
       </div>
         <!--Sök resultatet-->
-      <table id="resultat" class="container rounded col-lg-8 box" style="position:absolute; transform:translateY(57%);">
+      <table id="resultat" class="container rounded col-lg-8 box" style="position:absolute; top:39px; padding: 0px;" >
       </table>
   </div>
 
@@ -60,7 +60,7 @@
    <br>
    
    <!--Vad maträtten heter-->
-   <header id="header" class="container rounded col-lg-8 box matTitel">
+   <header id="header" class="container rounded col-lg-7  box matTitel">
    </header>
 
    <br>
@@ -74,7 +74,7 @@
          </div>
 
          <!--Här är min description-->
-         <div class="box container rounded col-lg-8">
+         <div class="box container rounded col-lg-3">
             <h2>Price:</h2>
             <p id="priceTag"></p>
 
@@ -83,7 +83,7 @@
                <input type="hidden" name="idTag" id="idTag" value="-1">
                <input type="number" name="quantityTag" id="quantityTag" min="0" value="0">
                
-               <input type="submit" value="Lägg i varukorg" class="btn btn-success btn-lg">
+               <input type="submit" value="Lägg i varukorg" class="btn btn-success btn-md">
             </form>
 
 
@@ -95,7 +95,7 @@
       <div class="row">
          <!--Här är hur man gör-->
          <div class="container rounded col-lg-8 box">
-            <h2>description:</h2>
+            <h2>Specifikationer:</h2>
             <p id="descriptionTag"></p>
          </div>
       </div>
