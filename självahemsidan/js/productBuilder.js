@@ -172,13 +172,8 @@ function searchProd() {
         else{
             let goods = response;
             for (let index = 0; index < goods.length; index++) {
-<<<<<<< HEAD
-                let receptRad = document.createElement("tr");
-                receptRad.className="col-md-12 sokKolomn rounded";
-=======
                 let prodRad = document.createElement("tr");
-                prodRad.className="col-md-8";
->>>>>>> 9a9d84f02f00dd50cdc85a00f1ec86b837db9dc8
+                prodRad.className="col-md-12 sokKolomn rounded";
                 
                 let bildTd = document.createElement("td");
                 bildTd.className="sokBildKolumn";
