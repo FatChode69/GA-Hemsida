@@ -68,84 +68,84 @@
 
         <table id="resultat" class="container rounded col-lg-8 box">
         <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "remmacs_tech";
-        $conn = mysqli_connect($servername, $username, $password, $database);
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $database = "remmacs_tech";
+            $conn = mysqli_connect($servername, $username, $password, $database);
 
-        session_start();
-        #$_SESSION["idTag"] = $_POST["idTag"];
+            session_start();
+            #$_SESSION["idTag"] = $_POST["idTag"];
 
 
-        if (empty($_SESSION["cart"])){
-        $_SESSION["cart"] = [];
-        }
-
-        if (!empty($_POST["idTag"])) {
-            //echo "Add to cart....";
-            $key = array_search($_POST["idTag"], array_column($_SESSION["cart"], 'id'));
-            //echo "Key:" . $key . "<br>";
-
-            if (is_numeric($key)){
-                //echo("Unsetting key " . $key);
-                array_splice($_SESSION["cart"], $key, 1);
+            if (empty($_SESSION["cart"])){
+            $_SESSION["cart"] = [];
             }
 
-            $nyProdukt = array(
-                "id" => $_POST["idTag"], 
-                "quantity" => $_POST["quantityTag"]);
-            array_push($_SESSION["cart"], $nyProdukt);
-            
-        } elseif (!empty($_POST["removeIdFromCart"])) {
-            //echo "Remove from cart...";
-            $key = array_search($_POST["removeIdFromCart"], array_column($_SESSION["cart"], 'id'));
-            //echo "Key:" . $key . "<br>";
+            if (!empty($_POST["idTag"])) {
+                //echo "Add to cart....";
+                $key = array_search($_POST["idTag"], array_column($_SESSION["cart"], 'id'));
+                //echo "Key:" . $key . "<br>";
 
-            if (is_numeric($key)){
-                //echo("Unsetting key " . $key);
-                array_splice($_SESSION["cart"], $key, 1);
-            }
-        } else {
-            //echo "View cart...";
-        }
-        
-
-
-        //Display cart
-
-        $sql = 'SELECT * FROM products WHERE id IN (-1';
-        foreach ($_SESSION["cart"] as $value) {
-            if (is_numeric($value["id"])) {
-                $sql = $sql . ", " . $value["id"];
-            }
-        }
-        $sql = $sql . ")";
-
-        $result = $conn->query($sql);
-        
-        if (($result->num_rows) > 0) {
-            while($row = $result->fetch_assoc()) {
-                foreach ($_SESSION["cart"] as $value) {
-                if ($row['id'] == $value['id']){
-                        $cartQuantity = $value['quantity'];
-                    }
+                if (is_numeric($key)){
+                    //echo("Unsetting key " . $key);
+                    array_splice($_SESSION["cart"], $key, 1);
                 }
-                //echo ($row['name']);
-                echo('<tr class="col-md-8">');
-                echo('    <td class="sokBildKolumn"><img src="' . $row['picture'] . '"');
-                echo('            class="sokBild"></td>');
-                echo('    <td><a href="../självahemsidan/productPage.html?productId=' . $row["id"] . '" class="sokText">' . $row['name'] . ', ' . $cartQuantity . 'st (' . $row["price"] . 'kr/st) </a>' .
-                '<form action="../api/addToCart.php" method="post">
-                <input type="hidden" name="removeIdFromCart" id="removeIdFromCart" value="' . $row["id"] . '">
-                <input type="submit" value="Delete" class="btn btn-danger btn-lg">
-                </form>');
-                echo('</tr>');
+
+                $nyProdukt = array(
+                    "id" => $_POST["idTag"], 
+                    "quantity" => $_POST["quantityTag"]);
+                array_push($_SESSION["cart"], $nyProdukt);
+                
+            } elseif (!empty($_POST["removeIdFromCart"])) {
+                //echo "Remove from cart...";
+                $key = array_search($_POST["removeIdFromCart"], array_column($_SESSION["cart"], 'id'));
+                //echo "Key:" . $key . "<br>";
+
+                if (is_numeric($key)){
+                    //echo("Unsetting key " . $key);
+                    array_splice($_SESSION["cart"], $key, 1);
+                }
+            } else {
+                //echo "View cart...";
             }
-        } else {
-            echo '<h3 class="container rounded col-lg-8 box" style="text-align:center">Din kundvagn är tom</h3>';
-        }
-    ?>
+            
+
+
+            //Display cart
+
+            $sql = 'SELECT * FROM products WHERE id IN (-1';
+            foreach ($_SESSION["cart"] as $value) {
+                if (is_numeric($value["id"])) {
+                    $sql = $sql . ", " . $value["id"];
+                }
+            }
+            $sql = $sql . ")";
+
+            $result = $conn->query($sql);
+            
+            if (($result->num_rows) > 0) {
+                while($row = $result->fetch_assoc()) {
+                    foreach ($_SESSION["cart"] as $value) {
+                    if ($row['id'] == $value['id']){
+                            $cartQuantity = $value['quantity'];
+                        }
+                    }
+                    //echo ($row['name']);
+                    echo('<tr class="col-md-8">');
+                    echo('    <td class="sokBildKolumn"><img src="' . $row['picture'] . '"');
+                    echo('            class="sokBild"></td>');
+                    echo('    <td><a href="../självahemsidan/productPage.html?productId=' . $row["id"] . '" class="sokText">' . $row['name'] . ', ' . $cartQuantity . 'st (' . $row["price"] . 'kr/st) </a>' .
+                    '<form action="../api/addToCart.php" method="post">
+                    <input type="hidden" name="removeIdFromCart" id="removeIdFromCart" value="' . $row["id"] . '">
+                    <input type="submit" value="Delete" class="btn btn-danger btn-lg">
+                    </form>');
+                    echo('</tr>');
+                }
+            } else {
+                echo '<h3 class="container rounded col-lg-8 box" style="text-align:center">Din kundvagn är tom</h3>';
+            }
+        ?>
 
 
 

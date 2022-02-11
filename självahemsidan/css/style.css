@@ -97,6 +97,7 @@ tfoot{
 }
 
 #HeroI{
+    top:30px;
     height: 380px;
     position: absolute;
     transform: translateY(-16.5%);
