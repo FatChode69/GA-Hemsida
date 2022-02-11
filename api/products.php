@@ -24,7 +24,7 @@ if (!empty($_GET["productId"])) {
     echo json_encode($product);
 
 }elseif (!empty($_GET["searchTerm"])) {
-    $sql = "SELECT * FROM `products` WHERE name LIKE '%" . $_GET["searchTerm"] . "%' LIMIT 10;";
+    $sql = "SELECT * FROM `products` WHERE name LIKE '%" . $_GET["searchTerm"] . "%' LIMIT 5;";
     $result = $conn->query($sql);
 
     $products = [];
