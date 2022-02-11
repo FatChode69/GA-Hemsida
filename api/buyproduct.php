@@ -134,7 +134,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
-                            <input type="text" id="address" name="address" class="form-control" placeholder="Address" required pattern="[A-Za-zåäöÅÄÖ .?!]+">
+                            <input type="text" id="address" name="address" class="form-control" placeholder="Address" required pattern="[A-Za-zåäöÅÄÖ .?!]+[0-9]+">
                             <label for="address" class=""></label>
                         </div>
                     </div>
