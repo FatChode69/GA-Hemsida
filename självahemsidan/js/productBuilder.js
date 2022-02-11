@@ -154,7 +154,7 @@ function searchProd() {
     let searchTerm = searchBar.value;
 
     let resultatbox = document.getElementById("resultat");
-
+ 
     resultatbox.innerHTML = null;
 
     console.log(searchTerm);
@@ -173,7 +173,7 @@ function searchProd() {
             let goods = response;
             for (let index = 0; index < goods.length; index++) {
                 let receptRad = document.createElement("tr");
-                receptRad.className="col-md-8";
+                receptRad.className="col-md-12 sokKolomn rounded";
                 
                 let bildTd = document.createElement("td");
                 bildTd.className="sokBildKolumn";

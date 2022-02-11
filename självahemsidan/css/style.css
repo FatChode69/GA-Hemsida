@@ -5,9 +5,17 @@ body{
     padding: 0px;
     margin: 0px;
     background-color:#061d38;
-    
+
 }
-#061d38
+
+/*#061d38*/
+#ProdBody{
+ padding: 0px;
+    margin: 0px;
+    background-color:#061d38;
+    background-image: url("body.png");
+}
+
 
 p, h1, h2, h3, a, .brandTitle{
     font-family: 'Lato', sans-serif;
@@ -20,7 +28,7 @@ p, h1, h2, h3, a, .brandTitle{
 }
 
 .background{
-    background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/kitchen-decor-ideas-1580491833.jpg');
+    background-image: url('body.png');
     background-repeat: no-repeat;
     object-fit: cover;
     background-size: 100%;
@@ -46,6 +54,9 @@ tfoot{
     background-color: rgba(255, 255, 255, 0.705);
 }
 
+.sokKolomn:hover{
+    background-color: rgba(233, 233, 233, 0.849);
+}
 .sokBildKolumn{
     width: 64px;
 }
@@ -56,7 +67,7 @@ tfoot{
 }
 
 .sokText{
-    font-size: 30px;
+    font-size: 25px;
     color: unset;
 }
 
@@ -69,7 +80,7 @@ tfoot{
 
 /*Min CSS animation, den är inte fin men det stod att man behövde en*/
 @keyframes searchName{
-    50%{font-size: 2rem;}
+    50%{font-size: 28px;}
 }
 
 .matTitel{
@@ -104,8 +115,9 @@ tfoot{
 }
 
 #text1{
-color:white;
-font-weight: bold;
+    color:white;
+    font-weight: bold;
+    font-size: 10px;
 }
 
 #text2{
@@ -127,11 +139,13 @@ font-weight: bold;
 #text5{
     color:white;  
     font-weight: bold;
+   
 }
     
     
 #text6{
     color:white;   
     font-weight: bold;
-}
     
+}
+
