@@ -5,6 +5,7 @@ body{
     padding: 0px;
     margin: 0px;
     background-color:#061d38;
+<<<<<<< HEAD
 
 }
 
@@ -16,6 +17,9 @@ body{
     background-image: url("body.png");
 }
 
+=======
+}
+>>>>>>> 9a9d84f02f00dd50cdc85a00f1ec86b837db9dc8
 
 p, h1, h2, h3, a, .brandTitle{
     font-family: 'Lato', sans-serif;
@@ -114,6 +118,7 @@ tfoot{
   height:45px;
 }
 
+<<<<<<< HEAD
 #text1{
     color:white;
     font-weight: bold;
@@ -149,3 +154,9 @@ tfoot{
     
 }
 
+=======
+.indexProdText{
+color:white;
+font-weight: bold;
+}
+>>>>>>> 9a9d84f02f00dd50cdc85a00f1ec86b837db9dc8
