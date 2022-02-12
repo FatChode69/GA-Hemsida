@@ -18,37 +18,41 @@
   </head>
   <body id="body">
 	<!--Denna gör min Navbar-->
-    <nav class="navbar navbar-expand-sm  fixed-top" style="opacity: 0.97; background-color:#061d38;">
-            <a href="../självahemsidan/index.html">
-            <img class="navbar-brand logo" alt="Picture not found." src="../självahemsidan/images/logga.png">
-            </a>
+    <nav class="navbar navbar-expand-sm  fixed-top" style="opacity: 0.97; background-color:#061d38; border-bottom: #db51a2 solid 4px;">
+      <a href="../självahemsidan/index.html">
+      <img class="navbar-brand logo" alt="Picture not found." src="../självahemsidan/images/logga.png">
+      </a>
 
-        <!--Här så görs mina nav-items en hamburgermeny när skärmen blir liten-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
+  <!--Här så görs mina nav-items en hamburgermeny när skärmen blir liten-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
 
-        <!--Mina länkar-->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="../självahemsidan/index.html#body">Home</a>
-                </li>
-            </ul>
-    
-        </div>
-        <!--Sökfältet och sökknappen-->
-        <div class="container rounded col-lg-8">
-              <!--Sök resultatet-->
-            <table id="resultat" class="container rounded col-lg-8 box" style="position:absolute; transform:translateY(57%);">
-            </table>
-        </div>
+  <!--Mina länkar-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" href="../självahemsidan/index.html">Hem</a>
+          </li>
+      </ul>
 
-        <!-- shopping carten -->
-        <a href="../api/addToCart.php">
-        <img class="ShopCart" alt="Picture not found." src="../självahemsidan/images/bråCart.png">
-        </a>
-        </nav>
+  </div>
+  <!--Sökfältet och sökknappen-->
+  <div class="container rounded col-lg-8">
+      <div class="input-group col-lg-8" >
+          <input id="search" type="search" class="form-control rounded" placeholder="Starta din sökning" aria-label="Search">
+          <button id="search-button" type="button" class="btn btn-outline-light" onclick="searchProd()">Sök</button>
+      </div>
+        <!--Sök resultatet-->
+      <table id="resultat" class="container rounded col-lg-8 box" style="position:absolute; top:39px;" >
+      </table>
+  </div>
+
+  <!-- shopping carten -->
+  <a href="../api/addToCart.php">
+  <img class="ShopCart" alt="Picture not found." src="../självahemsidan/images/bråCart.png">
+  </a>
+  </nav>
 	
     <div class="background">
     <br>
@@ -56,7 +60,7 @@
     <br>
    
     <!--Header-->
-    <header class="container rounded col-lg-8 box matTitel">
+    <header class="container rounded col-lg-4 box matTitel">
         Din kundvagn
     </header>
 
@@ -132,13 +136,13 @@
                         }
                     }
                     //echo ($row['name']);
-                    echo('<tr class="col-md-8">');
+                    echo('<tr class="col-md-6">');
                     echo('    <td class="sokBildKolumn"><img src="' . $row['picture'] . '"');
                     echo('            class="sokBild"></td>');
                     echo('    <td><a href="../självahemsidan/productPage.html?productId=' . $row["id"] . '" class="sokText">' . $row['name'] . ', ' . $cartQuantity . 'st (' . $row["price"] . 'kr/st) </a>' .
                     '<form action="../api/addToCart.php" method="post">
                     <input type="hidden" name="removeIdFromCart" id="removeIdFromCart" value="' . $row["id"] . '">
-                    <input type="submit" value="Delete" class="btn btn-danger btn-lg">
+                    <input type="submit" value="Delete" class="btn btn-danger btn-md">
                     </form>');
                     echo('</tr>');
                 }
@@ -161,7 +165,7 @@
     <footer class="container">
         <div class="row">
             <div class="text-center col-lg-6 offset-lg-3">
-                <p>Copyright &copy; 2021 &middot; Knife and Fork Kitchen</p>
+                <p class="copyright">Copyright &copy; 2022 &middot; Remmacs tech</p>
             </div>
         </div>
     </footer>
@@ -175,5 +179,8 @@
    <script src="../självahemsidan/js/bootstrap-4.4.1.js"></script>
 	  
    <!--Här är min Java-Script-->
+	<script src="../självahemsidan/js/productBuilder.js"></script>
+   <script src="../självahemsidan/js/productPage.js"></script>
+	<script src="../självahemsidan/js/index.js"></script>
   </body>
 </html>

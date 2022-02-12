@@ -144,7 +144,7 @@ function makePic() {
     //Skriver ett felmeddelande om den inte når api:et
     .catch(err => {
         console.error(err);
-        fillHeader("Something seems to have gone wrong, please try again another time or contact us using the form on the front page. :)")
+        fillHeader("Något verkar ha gått fel, försök igen någon annan gång. :)")
     });
 }
 
@@ -185,7 +185,7 @@ function searchProd() {
 
                 let titelTd = document.createElement("td");
                 let a = document.createElement("a");
-                a.href = "productPage.html?productId=" + goods[index].id;
+                a.href = "../självahemsidan/productPage.html?productId=" + goods[index].id;
                 a.innerHTML = goods[index].name;
                 a.className="sokText";
                 titelTd.appendChild(a);

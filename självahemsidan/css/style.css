@@ -15,7 +15,9 @@ body{
     background-image: url("body.png");
 }
 
-
+.copyright{
+    color:#db51a2;
+}
 p, h1, h2, h3, a, .brandTitle{
     font-family: 'Lato', sans-serif;
 }
@@ -97,7 +99,7 @@ tfoot{
 }
 
 #HeroI{
-    top:30px;
+    top:53px;
     height: 380px;
     position: absolute;
     transform: translateY(-16.5%);
