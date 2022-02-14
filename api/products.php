@@ -12,9 +12,9 @@ $sql = "";
 if (!empty($_GET["productId"])) {
     $sql = "SELECT * FROM `products` WHERE id=" . $_GET["productId"] . ";";
     $result = $conn->query($sql);
-    
+
     if (($result->num_rows) > 0) {
-        while($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
             $product = $row;
             $product['id'] = intval($row["id"]);
             $product['quantity'] = intval($row["quantity"]);
@@ -22,8 +22,7 @@ if (!empty($_GET["productId"])) {
         }
     }
     echo json_encode($product);
-
-}elseif (!empty($_GET["searchTerm"])) {
+} elseif (!empty($_GET["searchTerm"])) {
     $sql = "SELECT * FROM `products` WHERE name LIKE '%" . $_GET["searchTerm"] . "%' LIMIT 5;";
     $result = $conn->query($sql);
 
@@ -31,7 +30,7 @@ if (!empty($_GET["productId"])) {
     #echo "Num rows: ". $result->num_rows;
     $index = 0;
     if (($result->num_rows) > 0) {
-        while($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
             $products[$index] = $row;
             $products[$index]['id'] = intval($row["id"]);
             $products[$index]['quantity'] = intval($row["quantity"]);
@@ -40,8 +39,7 @@ if (!empty($_GET["productId"])) {
         }
     }
     echo json_encode($products);
-
-}else{
+} else {
     $sql = "SELECT * FROM `products`;";
     $result = $conn->query($sql);
 
@@ -49,7 +47,7 @@ if (!empty($_GET["productId"])) {
     #echo "Num rows: ". $result->num_rows;
     if (($result->num_rows) > 0) {
         $index = 0;
-        while($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
             $products[$index] = $row;
             $products[$index]['id'] = intval($row["id"]);
             $products[$index]['quantity'] = intval($row["quantity"]);
@@ -61,4 +59,3 @@ if (!empty($_GET["productId"])) {
 }
 
 $conn->close();
-?>

@@ -51,6 +51,17 @@ tfoot{
     margin-left:1em;
 }
 
+.navbarColor{
+    opacity: 0.97; 
+    background-color:#061d38; 
+    border-bottom: #db51a2 solid 4px;
+}
+
+.resultPos{
+    position:absolute; 
+    top:39px;
+}
+
 .box{
     background-color: rgba(255, 255, 255, 0.705);
 }
@@ -79,23 +90,17 @@ tfoot{
     text-decoration: none;
 }
 
-/*Min CSS animation, den är inte fin men det stod att man behövde en*/
+/*Min CSS animation, den är inte fin men den hjälper att se vilken man hoverar över*/
 @keyframes searchName{
     50%{font-size: 28px;}
 }
 
-.matTitel{
-    text-align: center; 
-    font-size: 2rem;
-}
-
-.fillMatBild{
-    padding:0px;
-}
-
-.matBild{
-    height:100%; 
-    width:100%;
+.behindHero{
+    height:370px; 
+    margin-bottom:-5px; 
+    position:static; 
+    transform:translateY(0%); 
+    background-color:black; 
 }
 
 #HeroI{
@@ -105,6 +110,35 @@ tfoot{
     transform: translateY(-16.5%);
     width:100%;
     background-color:#061d38;
+}
+
+.containerO{
+    height:55px; 
+    width:350px;
+}
+
+.chooseImg{
+    height:150px; 
+    width: 100%; 
+    background-color:white;
+}
+
+.prodTitel{
+    text-align: center; 
+    font-size: 2rem;
+}
+
+.fillprodBild{
+    padding:0px;
+}
+
+.prodBild{
+    height:100%; 
+    width:100%;
+}
+
+.centerText{
+    text-align:center
 }
 
 .ShopCart{ 
