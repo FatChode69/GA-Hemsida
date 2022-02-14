@@ -104,37 +104,37 @@ function text6(text) {
 }
 
 function makePic() {
-    fetch("../api/products.php" + "?productId=4")
+    fetch("../api/products.php" + "?productId=1")
         .then(response => response.json())
         .then(jsonResponse => {
             bild1(jsonResponse.picture);
             text1(jsonResponse.name);
         })
-    fetch("../api/products.php" + "?productId=7")
+    fetch("../api/products.php" + "?productId=4")
         .then(response => response.json())
         .then(jsonResponse => {
             bild2(jsonResponse.picture);
             text2(jsonResponse.name);
         })
-    fetch("../api/products.php" + "?productId=10")
+    fetch("../api/products.php" + "?productId=7")
         .then(response => response.json())
         .then(jsonResponse => {
             bild3(jsonResponse.picture);
             text3(jsonResponse.name);
         })
-    fetch("../api/products.php" + "?productId=5")
+    fetch("../api/products.php" + "?productId=2")
         .then(response => response.json())
         .then(jsonResponse => {
             bild4(jsonResponse.picture);
             text4(jsonResponse.name);
         })
-    fetch("../api/products.php" + "?productId=8")
+    fetch("../api/products.php" + "?productId=5")
         .then(response => response.json())
         .then(jsonResponse => {
             bild5(jsonResponse.picture);
             text5(jsonResponse.name);
         })
-    fetch("../api/products.php" + "?productId=11")
+    fetch("../api/products.php" + "?productId=8")
         .then(response => response.json())
         .then(jsonResponse => {
             bild6(jsonResponse.picture);

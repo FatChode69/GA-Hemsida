@@ -59,7 +59,8 @@ tfoot{
 
 .resultPos{
     position:absolute; 
-    top:39px;
+    top:39px; 
+    padding: 0px;
 }
 
 .box{
